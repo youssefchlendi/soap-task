@@ -1,0 +1,7 @@
+{
+  "name": "soap-task",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
