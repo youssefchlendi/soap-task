@@ -2,7 +2,7 @@
 	<ion-content>
 		<ion-list>
 			<ion-item v-for="continent in continents" :key="continent.code"
-				:router-link="`/continents/${continent.code}`">
+				:router-link="`/continents/${continent.name}`">
 				<ion-avatar slot="start">
 					<ion-img :src="`https://flagcdn.com/${continent.img}.svg`"></ion-img>
 				</ion-avatar>
@@ -18,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { Continent } from '@/models/Continent.model'
-import common from "./common-ionic-components";
+import common from "@/components/common-ionic-components";
 export default defineComponent({
 	props: {
 		continents: {
