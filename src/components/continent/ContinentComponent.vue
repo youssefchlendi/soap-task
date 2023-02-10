@@ -2,7 +2,12 @@
 	<ion-content>
 		<ion-list>
 			<ion-item v-for="continent in continents" :key="continent.code"
-				:router-link="`/continents/${continent.name}`">
+				:router-link="{
+					name: 'Countries',
+					params: {
+						code: continent.name
+					}
+				}">
 				<ion-avatar slot="start">
 					<ion-img :src="`https://flagcdn.com/${continent.img}.svg`"></ion-img>
 				</ion-avatar>

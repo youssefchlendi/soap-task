@@ -1,7 +1,15 @@
 <template>
-	<continent-component :continents="continents">
-
-	</continent-component>
+	<ion-page>
+		<ion-header>
+			<ion-toolbar>
+				<ion-title>Continents</ion-title>
+			</ion-toolbar>
+		</ion-header>
+		
+		<continent-component :continents="continents">
+			
+		</continent-component>
+	</ion-page>
 </template>
 
 <script lang="ts">
