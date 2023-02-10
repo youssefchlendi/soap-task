@@ -8,6 +8,10 @@ export interface CountryDetails extends CountryID {
 	continentCode: string;
 	currencyCode: string;
 	flag: string;
+	capital: string;
+	population: number;
+	area: number;
+	region: string;
 	languages: Language[];
 }
 

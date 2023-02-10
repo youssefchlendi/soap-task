@@ -22,6 +22,7 @@ import {
 	IonLabel,
 	IonAvatar,
 	IonImg,
+	IonText,
 	
 } from '@ionic/vue';
 
@@ -48,5 +49,6 @@ export default {
 	IonItem,
 	IonLabel,
 	IonAvatar,
-	IonImg
+	IonImg,
+	IonText
 };

@@ -14,7 +14,7 @@
 					:router-link="{
 						name: 'Country',
 						params: {
-							code: country.code
+							code: country.name
 						}
 					}">
 					<ion-avatar slot="start">
