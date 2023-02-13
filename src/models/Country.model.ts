@@ -9,13 +9,4 @@ export interface CountryDetails extends CountryID {
 	currencyCode: string;
 	flag: string;
 	capital: string;
-	population: number;
-	area: number;
-	region: string;
-	languages: Language[];
-}
-
-export interface Language {
-	isoCode: string;
-	name: string
 }
