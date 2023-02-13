@@ -1,6 +1,5 @@
 <template>
-	<ion-content>
-		<ion-list>
+		<ion-list class="w-full">
 			<ion-item v-for="continent in continents" :key="continent.code"
 				:router-link="{
 					name: 'Countries',
@@ -17,7 +16,6 @@
 				<p>{{ continent.code }}</p>
 			</ion-item>
 		</ion-list>
-	</ion-content>
 </template>
 
 <script lang="ts">

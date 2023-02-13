@@ -2,13 +2,16 @@
 	<ion-page>
 		<ion-header>
 			<ion-toolbar>
-				<ion-title>{{ params.code }}'s details</ion-title>
+				<ion-title>{{ country?.name??params.code }}'s details</ion-title>
 				<ion-buttons slot="start">
 					<ion-back-button  />
 				</ion-buttons>
 			</ion-toolbar>
 		</ion-header>
 		<ion-content>
+			<ion-refresher slot="fixed" @ionRefresh="handleRefresh($event)">
+				<ion-refresher-content></ion-refresher-content>
+			</ion-refresher>
 			<ion-card v-if="country">
 				<ion-card-header>
 					<ion-row class="ion-justify-content-between">
@@ -18,7 +21,7 @@
 							</ion-avatar>
 						</ion-col>
 						<ion-col>
-							<ion-card-subtitle>{{ country.region }}</ion-card-subtitle>
+							<ion-card-subtitle>{{ country.code }}</ion-card-subtitle>
 							<ion-card-title>{{ country.name }}</ion-card-title>
 						</ion-col>
 					</ion-row>
@@ -34,18 +37,16 @@
 						<ion-text>{{ country.capital }}</ion-text>
 					</ion-item>
 					<ion-item>
-						<ion-label>Population</ion-label>
-						<ion-text>{{ country.population }}</ion-text>
+						<ion-label>Currency</ion-label>
+						<ion-text>{{ country.currencyCode }}</ion-text>
 					</ion-item>
 					<ion-item>
-						<ion-label>Area</ion-label>
-						<ion-text>{{ country.area }}</ion-text>
+						<ion-label>Phone code</ion-label>
+						<ion-text>{{ country.phoneCode }}</ion-text>
 					</ion-item>
 					<ion-item>
-						<ion-label>Languages</ion-label>
-						<ion-item v-for="language in country.languages" :key="language.name">
-							<ion-label>{{ language.name }}</ion-label>
-						</ion-item>
+						<ion-label>Continent Code</ion-label>
+						<ion-text>{{ country.continentCode }} </ion-text>
 					</ion-item>
 				</ion-card-content>
 			</ion-card>
@@ -73,7 +74,12 @@ export default defineComponent({
 			fetchCountry(params.code as string)
 		}, { immediate: true })
 
-		return {params,country}
+		const handleRefresh = async (event: CustomEvent) => {
+			await fetchCountry(params.code as string);
+			event.detail.complete();
+		};
+
+		return {params,country,handleRefresh}
 	}
 })
 </script>
